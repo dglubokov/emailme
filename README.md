@@ -7,3 +7,9 @@ Simple email sending command line utility for sending emails from the command li
 ```bash
 sudo pip install -e . --break-system-packages
 ```
+
+## Use
+
+```bash
+emailme --subject "Hello" --body "Hello World"
+```
