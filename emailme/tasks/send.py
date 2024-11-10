@@ -12,7 +12,7 @@ def run(args):
     # Set default values if not provided
     subject = args.subject or DEFAULT_SUBJECT
     body = args.body or DEFAULT_BODY
-    
+
     if subject == DEFAULT_SUBJECT:
         print(f"Using default subject: {subject}")
     else:
@@ -54,7 +54,7 @@ def run(args):
             },
             Source=aws_config.sender,
         )
-        print("Email sent!")
+        print(f"Email sent to {config.recipient}")
     except Exception as e:
         print(f"An error occurred: {e}")
         exit(1)

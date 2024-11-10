@@ -8,8 +8,8 @@ Simple email sending command line utility for sending emails from the command li
 sudo pip install -e . --break-system-packages
 ```
 
-## Use
+## Usage Example
 
 ```bash
-emailme --subject "Hello" --body "Hello World"
+sleep 30 && emailme send --subject "Test Email" --body "sleep 30"
 ```
