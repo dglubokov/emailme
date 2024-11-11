@@ -22,7 +22,12 @@ def run(args):
         print(f"Using default body: {body}")
     else:
         # Add hostname to the body
-        body = f"{body}\nThis is an email notification from {HOSTNAME}."
+        body = (
+            f"{body}\n\n"
+            f"---\n"
+            f"Notification sent by {HOSTNAME}.\n"
+            f"This message is auto-generated. Please do not reply."
+        )
 
     # Get AWS Client
     client = get_client()
@@ -40,7 +45,7 @@ def run(args):
                 "Body": {
                     "Html": {
                         "Charset": "UTF-8",
-                        "Data": body,
+                        "Data": body.replace("\n", "<br>"),
                     },
                     "Text": {
                         "Charset": "UTF-8",
@@ -56,5 +61,5 @@ def run(args):
         )
         print(f"Email sent to {config.recipient}")
     except Exception as e:
-        print(f"An error occurred: {e}")
+        print(f"An error occurred while sending the email. Please check the provided details and retry.\nError: {e}")
         exit(1)
