@@ -5,7 +5,7 @@ from emailme.config import get_config
 
 HOSTNAME = subprocess.check_output(["hostname"]).strip().decode("utf-8")
 DEFAULT_SUBJECT = f"[{HOSTNAME}] Email Notification"
-DEFAULT_BODY = "This is an email notification from {HOSTNAME}."
+DEFAULT_BODY = f"This is an email notification from {HOSTNAME}."
 
 
 def run(args):
